@@ -11,4 +11,9 @@ object Constants {
         const val DETAILS_ARGUMENT_KEY = "heroId"
     }
 
+    object Database {
+        const val HERO_TABLE = "hero_table"
+        const val HERO_REMOTE_KEY_TABLE = "hero_remote_key_table"
+    }
+
 }
