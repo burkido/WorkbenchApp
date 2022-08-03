@@ -4,6 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.project.workbenchapp.data.local.dao.HeroDao
+import com.project.workbenchapp.data.local.dao.HeroRemoteKeyDao
 import com.project.workbenchapp.domain.model.Hero
 import com.project.workbenchapp.domain.model.HeroRemoteKey
 
@@ -12,5 +13,6 @@ import com.project.workbenchapp.domain.model.HeroRemoteKey
 @TypeConverters(DatabaseConverter::class)
 abstract class WorkbenchDatabase : RoomDatabase() {
 
-    abstract fun heroDao(): HeroDao
+    abstract fun heroDao() : HeroDao
+    abstract fun heroRemoteKeyDao() : HeroRemoteKeyDao
 }

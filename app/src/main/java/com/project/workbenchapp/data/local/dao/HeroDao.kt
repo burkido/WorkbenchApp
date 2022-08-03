@@ -1,11 +1,13 @@
 package com.project.workbenchapp.data.local.dao
 
 import androidx.paging.PagingSource
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.project.workbenchapp.domain.model.Hero
 
+@Dao
 interface HeroDao {
 
     @Query("SELECT * FROM HERO_TABLE ORDER BY ID ASC")
