@@ -6,6 +6,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.project.workbenchapp.presentation.screens.splash.SplashScreen
 import com.project.workbenchapp.util.Constants
 import com.project.workbenchapp.util.Constants.Screens.DETAILS_ARGUMENT_KEY
 
@@ -17,7 +18,7 @@ fun SetupNavGraph(navController: NavHostController) {
         startDestination = Screen.Splash.route
     ) {
         composable(route = Screen.Splash.route) {
-
+            SplashScreen(navHostController = navController)
         }
         composable(route = Screen.Welcome.route) {
 
