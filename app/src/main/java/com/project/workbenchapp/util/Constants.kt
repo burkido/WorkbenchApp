@@ -19,4 +19,8 @@ object Constants {
         const val HERO_REMOTE_KEY_TABLE = "hero_remote_key_table"
     }
 
+    object Pages {
+        const val LAST_ON_BOARDING_PAGE = 2
+    }
+
 }
