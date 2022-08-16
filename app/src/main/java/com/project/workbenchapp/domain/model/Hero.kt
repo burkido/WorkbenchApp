@@ -3,7 +3,9 @@ package com.project.workbenchapp.domain.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.project.workbenchapp.util.Constants.Database.HERO_TABLE
+import kotlinx.serialization.Serializable
 
+@Serializable
 @Entity(tableName = HERO_TABLE)
 data class Hero(
     @PrimaryKey(autoGenerate = false)
