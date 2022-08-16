@@ -18,17 +18,22 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.google.accompanist.pager.*
 import com.project.workbenchapp.R
 import com.project.workbenchapp.domain.model.OnBoardingPage
+import com.project.workbenchapp.navigation.Screen
 import com.project.workbenchapp.ui.theme.*
 import com.project.workbenchapp.util.Constants.Pages.LAST_ON_BOARDING_PAGE
 
 @ExperimentalAnimationApi
 @ExperimentalPagerApi
 @Composable
-fun WelcomeScreen(navController: NavHostController) {
+fun WelcomeScreen(
+    navController: NavHostController,
+    welcomeViewModel: WelcomeViewModel = hiltViewModel()
+) {
 
     val pages = listOf(
         OnBoardingPage.FirstScreen,
@@ -68,7 +73,9 @@ fun WelcomeScreen(navController: NavHostController) {
                 .align(Alignment.CenterHorizontally),
             pagerState = pagerState,
         ) {
-
+            navController.popBackStack()
+            navController.navigate(Screen.Home.route)
+            welcomeViewModel.saveOnBoardingState(isCompleted = true)
         }
 
     }
