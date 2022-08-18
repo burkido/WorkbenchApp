@@ -3,7 +3,10 @@ package com.project.workbenchapp.di
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.project.workbenchapp.data.remote.WorkbenchApi
 import com.project.workbenchapp.util.Constants.Retrofit.BASE_URL
+import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -13,6 +16,8 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @OptIn(ExperimentalSerializationApi::class)
+@Module
+@InstallIn(SingletonComponent::class)
 object NetworkModule {
 
 

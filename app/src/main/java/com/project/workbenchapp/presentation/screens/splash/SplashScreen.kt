@@ -50,7 +50,7 @@ fun SplashScreen(
         navHostController.navigate(Screen.Welcome.route)
 
 
-    Splash(rotateDegree.value)
+    Splash(rotateDegree = rotateDegree.value)
 }
 
 @Composable
