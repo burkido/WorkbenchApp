@@ -42,15 +42,14 @@ fun SplashScreen(
                 delayMillis = 200
             )
         )
+        navHostController.popBackStack()
+        if (isOnBoardingCompleted)
+            navHostController.navigate(Screen.Home.route)
+        else
+            navHostController.navigate(Screen.Welcome.route)
     }
-    navHostController.popBackStack()
-    if (isOnBoardingCompleted)
-        navHostController.navigate(Screen.Home.route)
-    else
-        navHostController.navigate(Screen.Welcome.route)
 
-
-    Splash(rotateDegree = rotateDegree.value)
+    Splash(rotateDegree.value)
 }
 
 @Composable
