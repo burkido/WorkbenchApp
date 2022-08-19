@@ -10,7 +10,7 @@ import com.project.workbenchapp.domain.model.HeroRemoteKey
 interface HeroRemoteKeyDao {
 
     @Query("SELECT * FROM HERO_REMOTE_KEY_TABLE WHERE ID = :id")
-    suspend fun getRemoteKEY(id: Int) : HeroRemoteKey?
+    suspend fun getRemoteKey(id: Int) : HeroRemoteKey?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addAllRemoteKeys(heroRemoteKey: List<HeroRemoteKey>)
