@@ -1,6 +1,5 @@
 package com.project.workbenchapp.util
 
-import com.project.workbenchapp.data.local.WorkbenchDatabase
 
 object Constants {
 
@@ -26,6 +25,7 @@ object Constants {
 
     object Pages {
         const val LAST_ON_BOARDING_PAGE = 2
+        const val ITEMS_COUNT_PER_PAGE = 3
     }
 
     object Retrofit {

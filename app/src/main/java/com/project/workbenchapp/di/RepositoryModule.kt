@@ -2,7 +2,7 @@ package com.project.workbenchapp.di
 
 import android.content.Context
 import com.project.workbenchapp.data.repository.DataStoreImpl
-import com.project.workbenchapp.data.repository.DataStoreRepository
+import com.project.workbenchapp.data.repository.MasterRepository
 import com.project.workbenchapp.domain.repository.DataStore
 import com.project.workbenchapp.domain.usecases.onboarding.OnBoardingUseCases
 import com.project.workbenchapp.domain.usecases.onboarding.readonboarding.ReadOnBoardingUseCase
@@ -29,10 +29,10 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideOnBoardingUseCases(dataStoreRepository: DataStoreRepository) : OnBoardingUseCases {
+    fun provideOnBoardingUseCases(masterRepository: MasterRepository) : OnBoardingUseCases {
         return OnBoardingUseCases(
-            saveOnBoardingUseCase = SaveOnBoardingUseCase(dataStoreRepository),
-            readOnBoardingUseCase = ReadOnBoardingUseCase(dataStoreRepository)
+            saveOnBoardingUseCase = SaveOnBoardingUseCase(masterRepository),
+            readOnBoardingUseCase = ReadOnBoardingUseCase(masterRepository)
         )
     }
 

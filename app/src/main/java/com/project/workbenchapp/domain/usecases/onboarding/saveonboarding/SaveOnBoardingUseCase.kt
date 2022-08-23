@@ -1,12 +1,12 @@
 package com.project.workbenchapp.domain.usecases.onboarding.saveonboarding
 
-import com.project.workbenchapp.data.repository.DataStoreRepository
+import com.project.workbenchapp.data.repository.MasterRepository
 
 class SaveOnBoardingUseCase(
-    private val dataStoreRepository: DataStoreRepository,
+    private val masterRepository: MasterRepository,
 ) {
 
     suspend operator fun invoke(isCompleted: Boolean) {
-        dataStoreRepository.saveOnBoardingState(isCompleted = isCompleted)
+        masterRepository.saveOnBoardingState(isCompleted = isCompleted)
     }
 }

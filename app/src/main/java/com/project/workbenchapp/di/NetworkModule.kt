@@ -1,7 +1,11 @@
 package com.project.workbenchapp.di
 
+import androidx.paging.ExperimentalPagingApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.project.workbenchapp.data.local.WorkbenchDatabase
 import com.project.workbenchapp.data.remote.WorkbenchApi
+import com.project.workbenchapp.data.repository.RemoteDataSourceImpl
+import com.project.workbenchapp.domain.repository.RemoteDataSource
 import com.project.workbenchapp.util.Constants.Retrofit.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -15,6 +19,8 @@ import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+
+@ExperimentalPagingApi
 @OptIn(ExperimentalSerializationApi::class)
 @Module
 @InstallIn(SingletonComponent::class)
@@ -46,5 +52,17 @@ object NetworkModule {
     @Singleton
     fun provideWorkbenchApi(retrofit: Retrofit) : WorkbenchApi {
         return retrofit.create(WorkbenchApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRemoteDataSource(
+        workbenchApi: WorkbenchApi,
+        workbenchDatabase: WorkbenchDatabase
+    ) : RemoteDataSource {
+        return RemoteDataSourceImpl(
+            workbenchApi = workbenchApi,
+            workbenchDatabase = workbenchDatabase
+        )
     }
 }
