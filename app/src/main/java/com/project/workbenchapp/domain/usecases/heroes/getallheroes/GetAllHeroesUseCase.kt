@@ -1,4 +1,4 @@
-package com.project.workbenchapp.domain.usecases.onboarding.getallheroes
+package com.project.workbenchapp.domain.usecases.heroes.getallheroes
 
 import androidx.paging.PagingData
 import com.project.workbenchapp.data.repository.MasterRepository

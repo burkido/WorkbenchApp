@@ -4,6 +4,8 @@ import android.content.Context
 import com.project.workbenchapp.data.repository.DataStoreImpl
 import com.project.workbenchapp.data.repository.MasterRepository
 import com.project.workbenchapp.domain.repository.DataStore
+import com.project.workbenchapp.domain.usecases.heroes.HeroesUseCases
+import com.project.workbenchapp.domain.usecases.heroes.getallheroes.GetAllHeroesUseCase
 import com.project.workbenchapp.domain.usecases.onboarding.OnBoardingUseCases
 import com.project.workbenchapp.domain.usecases.onboarding.readonboarding.ReadOnBoardingUseCase
 import com.project.workbenchapp.domain.usecases.onboarding.saveonboarding.SaveOnBoardingUseCase
@@ -33,6 +35,14 @@ object RepositoryModule {
         return OnBoardingUseCases(
             saveOnBoardingUseCase = SaveOnBoardingUseCase(masterRepository),
             readOnBoardingUseCase = ReadOnBoardingUseCase(masterRepository)
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideHeroUseCases(masterRepository: MasterRepository) : HeroesUseCases {
+        return HeroesUseCases(
+            getAllHeroesUseCase = GetAllHeroesUseCase(masterRepository)
         )
     }
 
